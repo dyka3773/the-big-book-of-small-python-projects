@@ -41,8 +41,9 @@ def generate_birthdays(n: int) -> List[datetime.date]:
         # NOTE: The year 2000 is a leap year, this might affect the results.
         first_day = datetime.date(2000, 1, 1)
 
+        # NOTE: In case of a non leap year, the range should be 0 to 364
         random_day = first_day + \
-            datetime.timedelta(days=random.randint(1, 365))
+            datetime.timedelta(days=random.randint(0, 365))
         birthdays.append(random_day)
     return birthdays
 
@@ -112,7 +113,7 @@ def main() -> None:
             "Same birthday for multiple people on these dates:")
         for duplicate in duplicates:
             print_text_with_delay(
-                f"{MONTHS[duplicate.month - 1]} {duplicate.day}")  # type: ignore
+                f"{MONTHS[duplicate.month - 1]} {duplicate.day}")
     else:
         print_text_with_delay("No shared birthdays in this group.")
 
@@ -141,16 +142,17 @@ def input_num_birthdays() -> int:
     """Prompt the user for the number of birthdays to generate.
 
     Returns:
-        int: The number of birthdays to generate (between 1 and 100).
+        int: The number of birthdays to generate
     """
     while True:
-        print_text_with_delay("How many birthdays shall I generate? (Max 100)")
+        print_text_with_delay("How many birthdays shall I generate?")
+        print_text_with_delay("(Numbers larger than 100 can take a while.)")
         response = input('> ')
-        if response.isdecimal() and (1 <= int(response) <= 100):
+        if response.isdecimal() and (1 < int(response)):
             num_birthdays = int(response)
             break
         else:
-            print_text_with_delay("Please enter a number between 1 and 100.")
+            print_text_with_delay("Please enter a number greater than 1.")
     return num_birthdays
 
 
