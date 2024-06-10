@@ -22,3 +22,5 @@ File: [bagels.py](./Project%201%20-%20Bagels/bagels.py)
 **Description:** The Birthday Paradox is a probability problem that asks how many people are needed in a room for the probability of two of them sharing a birthday to be greater than 50%.
 
 File: [birthday_paradox.py](./Project%202%20-%20Birthday%20Paradox/birthday-paradox.py)
+
+*Extras:* I've also created an extra file that takes the concept of the Birthday Paradox and applies it to me buying a EURO 2024 sticker album, and how many stickers I need to buy to complete the album and stuff like that. You can find it [here](./Project%202%20-%20Birthday%20Paradox/sticker-paradox.py) be sure to check it out!
