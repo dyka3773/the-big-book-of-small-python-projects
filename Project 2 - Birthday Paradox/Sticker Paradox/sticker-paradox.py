@@ -8,7 +8,7 @@ INTRO_TEXT = '''The Sticker Paradox shows us that in a package of 6 stickers, th
 that at least one of them will already be in your collection is surprisingly high.
 This program runs a Monte Carlo simulation to explore this concept.
 
-(It's not actually a paradox, it's just a surprising result.)
+(It's not actually a mathmematical paradox, it's just a surprising result.)
 '''
 NUM_OF_STICKER_PLACES = 728
 STICKERS: List[int] = [x for x in range(NUM_OF_STICKER_PLACES)]
@@ -117,7 +117,7 @@ on average to find your first duplicate sticker.""")
 
     packs_needed_per_compl_sim = []
     packs_needed_per_first_sim = []
-    for i in range(100):
+    for i in range(1_000):
         packs_needed = 1
         duplicate_found = False
         album = Album()
@@ -133,7 +133,7 @@ on average to find your first duplicate sticker.""")
         
         packs_needed_per_compl_sim.append(packs_needed)
         
-        if i % 10 == 0:
+        if i % 100 == 0:
             print_text_with_delay(f"{i} simulations run...")
     
     average_packs_needed_for_completion = sum(packs_needed_per_compl_sim) / len(packs_needed_per_compl_sim)
